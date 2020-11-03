@@ -4,11 +4,12 @@ import Layout from "../components/layout";
 function About() {
 	return (
 		<Layout>
-            <Head>
-                <title>Hakkımda</title>
-            </Head>
 			<h1>Hakkımda</h1>
-            <p style={{color:'blue'}}> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus sint placeat unde laboriosam, distinctio vitae laborum laudantium magnam voluptatem qui eius architecto alias quas non cum obcaecati sit? Nam, dolor. </p>
+
+			<p style={{ color: "blue" }}>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus sint placeat unde laboriosam, distinctio
+				vitae laborum laudantium magnam voluptatem qui eius architecto alias quas non cum obcaecati sit? Nam, dolor.
+			</p>
 		</Layout>
 	);
 }

@@ -4,10 +4,6 @@ import Layout from "../components/layout";
 function HomePage() {
 	return (
 		<Layout>
-			<Head>
-				{/* Seo için head component'ı */}
-				<title>Next Js Öğreniyorum...</title>
-			</Head>
 			<h1>Welcome to Next.js!</h1>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquid eius possimus quas libero reiciendis
