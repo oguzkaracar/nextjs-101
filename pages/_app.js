@@ -1,4 +1,4 @@
-import "../styles/app.css";
+import "../styles/app.scss";
 
 // Gizli bir "App" Component Nextjs sayfalarını (initialize eder) çalıştırır. Global css eklemek için _app.js dosyasını oluşturmamız ve global stylesheetleri buraya import etmemiz gerekir... (custom App olarak geçiyor...)
 

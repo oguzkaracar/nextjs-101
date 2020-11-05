@@ -8,10 +8,14 @@ const Navigation = () => {
 	return (
 		<nav>
 			<Link href="/">
+				{/* Link' içinde first child a tag i olmak zorunda Link elementi DOM' da gözükmez!! */}
 				<a className={style.link}> Ana sayfa</a>
 			</Link>
 			<Link href="/about">
-				<a style={{color:'#ad2626', fontSize:23}}> Hakkımda </a>
+				<a className={style.link}> Hakkımda </a>
+			</Link>
+			<Link href="/contact">
+				<a className={style.link}> İletişim </a>
 			</Link>
 		</nav>
 	);

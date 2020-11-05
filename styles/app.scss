@@ -5,4 +5,17 @@ body {
     max-width: 680px;
     margin: 0 auto;
     color:darkblue;
-  }
+}
+
+.title{
+    h1{
+        color:firebrick;
+    }
+}
+
+.contact-link{
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+    color:chocolate;
+}
