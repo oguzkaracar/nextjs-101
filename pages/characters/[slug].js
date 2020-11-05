@@ -1,17 +1,25 @@
 import Layout from "../../components/Layout";
 import slug from "slug";
 
+import { useRouter } from "next/router";
+
 function CharacterDetail({ character }) {
+	// useRouter hook'u ile route objesine direkt olarak erişim sağlayarak, ilgili dynamic route path ya da slug değerini alabiliriz... Statik datalarda daha kullanışlı olabilir..
+
+	const router = useRouter();
+	const id = router.query.slug.split("-").slice(-1, [0]);
+	const { slug } = router.query;
 	return (
 		<Layout>
 			<h1>{character.name}</h1>
+			<p>Character id: {id} </p>
+			<p>Slug: {slug} </p>
 			<img src={character.image} alt="character-img" />
-			
 		</Layout>
 	);
 }
 
-// ** getStaticPath ile dinamik olarak oluşturulan routeların datalarına erişmek için, pathleri nextjs'in önceden bilmesi ve pre-render etmesi için kullanırız. route pathlerini ise getStaticProps aktararak ilgili datayı props olarak component'a iletecez...!
+// ** getStaticPath' i dinamik olarak oluşturulan routeların datalarına erişmek için kullanırız, pathleri nextjs'in önceden bilmesi ve pre-render etmesi için kullanırız. route pathlerini ise getStaticProps ile component'a aktararak ilgili datayla işlemlere devam ederiz.
 
 export const getStaticPaths = async () => {
 	const res = await fetch("https://rickandmortyapi.com/api/character/");
@@ -25,7 +33,7 @@ export const getStaticPaths = async () => {
 
 	return {
 		paths,
-		fallback: false,
+		fallback: false, // true olursa eşleşmeyen diğer tüm routelar 404 olucak. fallbackPage hazırlanırsa ona yönlendirecek, (useRouter ile tespit edilir ve yönlendirilir.)
 	};
 };
 

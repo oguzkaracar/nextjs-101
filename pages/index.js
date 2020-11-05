@@ -1,15 +1,18 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
-import slug from 'slug';
+import slug from "slug";
 
 function HomePage({ characters }) {
 	return (
 		<Layout>
-			<h1>Welcome to Next.js!</h1>
+			<div className="title">
+				<h1>Welcome to Next.js!</h1>
+			</div>
 
 			<ul>
 				{characters.results.map((result) => (
 					<li key={result.id}>
+						{/* [slug] dynamic bir route olduğunu belirtir. as ile route'un hangi isimli ya da hangi id olduğunu belirtiriz. Client tarafında nasıl gözükeceğini belirleriz.. */}
 						<Link href="/characters/[slug]" as={`/characters/${slug(result.name)}-${result.id}`}>
 							<a>{result.name}</a>
 						</Link>
@@ -39,7 +42,7 @@ function HomePage({ characters }) {
 }
 
 export const getStaticProps = async () => {
-	// getStaticProps ile API'den alınan verileri sayfa componentine props olarak verebiliriz... Bu fonksiyon server tarafında çalışıyor. console.log() yaparsak node console olarak görürüz..
+	// getStaticProps ile API'den alınan verileri sayfa componentine props olarak verebiliriz... Bu fonksiyon server tarafında çalışıyor. console.log() yaparsak node console olarak görürüz.. Datayı Build time da bir kere (fetch ederek) çekerek, component'a props olarak göndeririz.
 
 	const res = await fetch("https://rickandmortyapi.com/api/character/");
 	const characters = await res.json();
