@@ -1,6 +1,8 @@
+// dynamic route oluşturma...
+
 export default async (req, res) => {
   const {
-    query: { id },
+    query: {id} ,
   } = req;
 
   console.log(req.query);
