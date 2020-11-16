@@ -44,8 +44,8 @@ function HomePage({ characters }) {
   );
 }
 
-export const getStaticProps = async () => {
-  // getStaticProps ile API'den alınan verileri sayfa componentine props olarak verebiliriz... Bu fonksiyon server tarafında çalışıyor. console.log() yaparsak node console olarak görürüz.. Datayı Build time da bir kere (fetch ederek) çekerek, component'a props olarak göndeririz.
+export const getServerSideProps = async () => {
+  // getStaticProps (getServersideProps) ile API'den alınan verileri sayfa componentine props olarak verebiliriz... Bu fonksiyon server tarafında çalışıyor. console.log() yaparsak node console olarak görürüz.. Datayı Build time da bir kere (fetch ederek) çekerek, component'a props olarak göndeririz.
 
   const res = await fetch('https://rickandmortyapi.com/api/character/');
   const characters = await res.json();
